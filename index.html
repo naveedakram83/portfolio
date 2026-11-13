@@ -1,0 +1,759 @@
+<!doctype html>
+<html lang="en" data-theme="editorial">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Naveed Akram | Senior Solution Architect, Secure Payments</title>
+<meta name="description" content="Naveed Akram, Senior Solution Architect for secure payments and banking middleware. I architect and deliver the secure middleware that connects ATMs, POS and digital channels to core banking.">
+<meta name="theme-color" content="#F5F5F2">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Naveed Akram | Senior Solution Architect, Secure Payments">
+<meta property="og:description" content="Providing solutions for security in digital payments. Secure ATM, POS and digital banking middleware, from discovery to go-live.">
+<meta property="og:url" content="https://naveedakram83.github.io/portfolio/">
+<meta property="og:image" content="https://naveedakram83.github.io/portfolio/assets/portrait.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://naveedakram83.github.io/portfolio/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/portrait.webp" type="image/webp">
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js"}}</script>
+<link rel="stylesheet" href="assets/theme.css">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+/* Page components. Every color, font, radius and type size comes from
+   assets/theme.css tokens; switch themes with <html data-theme="...">. */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:var(--fs-body)/1.55 var(--font-body);letter-spacing:-.006em;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,p,ul,ol{margin:0;padding:0}
+ul,ol{list-style:none}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+section{scroll-margin-top:60px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gutter)}
+.alt{background:var(--bg-alt)}
+.acc{color:var(--accent-text);font-style:var(--accent-style);font-weight:var(--accent-weight)}
+.eyebrow{font-family:var(--font-label);font-size:var(--fs-label);font-weight:var(--label-weight);letter-spacing:var(--label-track);text-transform:var(--label-transform);color:var(--muted);line-height:1.6}
+.eyebrow::before{content:"";display:inline-block;vertical-align:middle;width:22px;height:1px;margin:0 10px 2px 0;background:var(--accent)}
+.h2{margin-top:14px;font-family:var(--font-display);font-size:var(--fs-h2);font-weight:var(--h2-weight);letter-spacing:var(--h2-track);line-height:1.06;max-width:20ch;text-wrap:balance}
+.h2.sm{font-size:clamp(1.7rem,3vw,2.3rem)}
+.sub{margin-top:18px;font-size:var(--fs-lede);color:var(--muted);max-width:48ch;line-height:1.55}
+.pad{padding:clamp(80px,11vw,140px) 0}
+.head{display:flex;flex-direction:column;margin-bottom:var(--space-7);padding-top:22px;border-top:1px solid var(--text)}
+.band .head{border-top-color:var(--line)}
+
+/* reveal */
+.js .rv{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.js .rv.in{opacity:1;transform:none}
+.js .rv.d1{transition-delay:.08s}.js .rv.d2{transition-delay:.16s}.js .rv.d3{transition-delay:.24s}.js .rv.d4{transition-delay:.32s}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:var(--radius-btn);font-weight:600;font-size:.95rem;transition:background .25s,color .25s,border-color .25s,transform .25s var(--ease)}
+.btn.primary{background:var(--btn-bg);color:var(--btn-ink)}
+.btn.primary:hover{background:var(--btn-bg-hover);transform:translateY(-1px)}
+.btn.ghost{border:1px solid var(--line-strong);color:var(--text)}
+.btn.ghost:hover{border-color:var(--text)}
+.link{color:var(--accent-text);font-weight:600;font-size:.98rem}
+.link:hover{text-decoration:underline;text-underline-offset:4px}
+
+/* nav */
+.nav{position:fixed;inset:0 0 auto;z-index:50;height:60px;background:var(--nav-bg);backdrop-filter:saturate(160%) blur(18px);-webkit-backdrop-filter:saturate(160%) blur(18px);color:var(--text);border-bottom:1px solid var(--line);transition:background .4s,color .4s,border-color .4s}
+.nav.on-band{background:color-mix(in srgb,var(--band-bg) 82%,transparent);color:var(--band-text);border-color:var(--band-line)}
+.nav .wrap{height:100%;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:600;font-size:1rem;letter-spacing:-.01em}
+.brand img{width:28px;height:28px;border-radius:50%;object-fit:cover;object-position:center 18%;filter:var(--portrait-filter)}
+.nav ul{display:flex;gap:26px;font-size:var(--fs-small);opacity:.85}
+.nav ul a{position:relative;padding:4px 0}
+.nav ul a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+.nav ul a:hover::after{transform:scaleX(1)}
+.nav .cta-s{font-size:var(--fs-small);font-weight:600;padding:8px 16px;background:var(--btn-bg);color:var(--btn-ink);border-radius:var(--radius-btn);transition:background .25s}
+.nav.on-band .cta-s{background:var(--band-btn-bg);color:var(--band-btn-ink)}
+@media (max-width:900px){.nav ul{display:none}}
+
+/* hero */
+.hero{position:relative;min-height:100svh;padding:120px 0 60px;background:var(--hero-bg);display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+.hero-in{display:grid;grid-template-columns:minmax(0,1.32fr) minmax(0,.68fr);gap:clamp(32px,5vw,72px);align-items:center}
+.hero h1{margin-top:22px;font-family:var(--font-display);font-size:var(--fs-display);font-weight:var(--h1-weight);letter-spacing:var(--h1-track);line-height:var(--h1-lh);max-width:15.5ch;text-wrap:balance}
+.hero .lede{margin-top:24px;font-size:var(--fs-lede);line-height:1.55;color:var(--text-2);max-width:46ch}
+.hero .lede b{color:var(--text);font-weight:600}
+.hero .ctas{margin-top:34px;display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px}
+.visual{position:relative;isolation:isolate;aspect-ratio:744/887;width:100%;max-width:400px;justify-self:end}
+.visual img,.visual canvas{position:absolute;inset:0;width:100%;height:100%;border-radius:var(--radius-media)}
+.visual img{object-fit:cover;filter:var(--portrait-filter);box-shadow:var(--shadow-media);transition:opacity .8s}
+.visual canvas{inset:-9%;width:118%;height:118%;border-radius:0;opacity:0;transition:opacity 1s}
+.visual.gl img{opacity:0}
+.visual.gl canvas{opacity:1}
+.chips{margin-top:var(--space-8);display:flex;flex-wrap:wrap;gap:10px 28px;font-family:var(--font-label);font-size:var(--fs-small);color:var(--muted);border-top:1px solid var(--line);padding-top:24px}
+@media (max-width:900px){
+  .hero{padding-top:100px;min-height:auto}
+  .hero-in{grid-template-columns:1fr;gap:48px}
+  .hero h1{font-size:clamp(2.2rem,9.4vw,3.4rem);max-width:none}
+  .visual{justify-self:start;max-width:340px}
+
+  .chips{margin-top:var(--space-7)}
+}
+
+/* statement */
+.statement{position:relative;height:240vh}
+.statement .stick{position:sticky;top:0;height:100svh;display:flex;align-items:center}
+.statement p{font-family:var(--font-display);font-size:clamp(1.8rem,4vw,3.3rem);font-weight:var(--h2-weight);letter-spacing:var(--h2-track);line-height:1.14;max-width:24ch}
+.statement .w{color:var(--text-faint);transition:color .3s}
+.statement .w.on{color:var(--text)}
+.statement .w.hl.on{color:var(--accent-text);font-style:var(--accent-style)}
+
+/* impact */
+.impact{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--space-5)}
+.imp{padding-top:22px;border-top:1px solid var(--text)}
+.imp b{display:block;font-family:var(--font-display);font-size:clamp(2rem,3.5vw,3rem);font-weight:var(--h1-weight);letter-spacing:var(--h1-track);line-height:1}
+.imp span{display:block;margin-top:10px;color:var(--muted);font-size:var(--fs-small);max-width:18ch}
+@media (max-width:900px){.impact{grid-template-columns:1fr 1fr;row-gap:36px}.imp:last-child{grid-column:span 2}}
+
+/* capabilities */
+.bento{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{position:relative;background:var(--surface);border:var(--card-border);border-radius:var(--radius-card);padding:32px 30px 34px;overflow:hidden;transition:transform var(--dur) var(--ease),border-color var(--dur)}
+.card:hover{transform:translateY(-3px);border-color:var(--line-strong)}
+.card::after{content:"";position:absolute;inset:0;background:radial-gradient(420px circle at var(--cx,50%) var(--cy,0%),var(--accent-soft),transparent 60%);opacity:0;transition:opacity .4s;pointer-events:none}
+.card:hover::after{opacity:1}
+.card.wide{grid-column:span 2}
+.card svg{width:36px;height:36px;stroke:var(--accent-text);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.card h3{margin-top:26px;font-family:var(--font-display);font-size:var(--fs-h3);font-weight:var(--h2-weight);letter-spacing:var(--h2-track);line-height:1.2;max-width:24ch}
+.card p{margin-top:10px;color:var(--muted);max-width:48ch}
+.card.wide h3{font-size:clamp(1.45rem,2.4vw,1.95rem)}
+.card.feature{background:var(--feature-bg);color:var(--feature-text);border-color:transparent}
+.card.feature p{color:var(--feature-muted)}
+.card.feature svg{stroke:var(--feature-icon,var(--accent-text))}
+.tagrow{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px}
+.tagrow span{font-family:var(--font-label);font-size:.74rem;padding:6px 11px;border-radius:var(--radius-chip);background:var(--chip-bg);color:var(--chip-ink);border:1px solid var(--line)}
+.card.feature .tagrow span,.case.dk .tagrow span{color:var(--feature-text);border-color:rgba(255,255,255,.16);background:rgba(255,255,255,.05)}
+@media (max-width:900px){.bento{grid-template-columns:1fr 1fr}.card.wide{grid-column:span 2}}
+@media (max-width:640px){.bento{grid-template-columns:1fr}.card.wide{grid-column:auto}}
+
+/* process (band) */
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--space-5);counter-reset:s}
+.step{position:relative;padding-top:58px}
+.step::before{counter-increment:s;content:"0" counter(s);position:absolute;top:0;left:0;width:40px;height:40px;display:grid;place-items:center;font:500 .8rem var(--font-label);color:var(--accent-text);border:1px solid var(--accent);border-radius:var(--radius-btn)}
+.step::after{content:"";position:absolute;top:20px;left:52px;right:-14px;height:1px;background:var(--line)}
+.step:last-child::after{display:none}
+.step h3{font-family:var(--font-display);font-size:1.2rem;font-weight:var(--h2-weight);letter-spacing:-.02em}
+.step p{margin-top:10px;color:var(--muted);font-size:.96rem}
+@media (max-width:900px){.steps{grid-template-columns:1fr;gap:34px}.step{padding:0 0 0 62px}.step::after{top:48px;left:20px;right:auto;bottom:-30px;width:1px;height:auto}}
+
+/* case studies */
+.cases{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.case{background:var(--surface);border:var(--card-border);border-radius:var(--radius-card);padding:34px 32px 36px;display:flex;flex-direction:column}
+.case.wide{grid-column:span 2;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:end}
+.case.dk{background:var(--feature-bg);color:var(--feature-text);border-color:transparent}
+.case .k{font-family:var(--font-label);font-size:var(--fs-label);letter-spacing:var(--label-track);text-transform:var(--label-transform);color:var(--accent-text)}
+.case.dk .k{color:var(--feature-icon,var(--accent-text))}
+.case h3{margin-top:14px;font-family:var(--font-display);font-size:clamp(1.3rem,2.1vw,1.65rem);font-weight:var(--h2-weight);letter-spacing:var(--h2-track);line-height:1.2;max-width:26ch;text-wrap:balance}
+.case.wide h3{font-size:clamp(1.6rem,2.8vw,2.2rem)}
+.case p{margin-top:12px;color:var(--muted);max-width:52ch}
+.case.dk p{color:var(--feature-muted)}
+.pts{margin-top:18px;display:grid;gap:12px}
+.pts li{position:relative;padding-left:24px;color:var(--text-2)}
+.case.dk .pts li{color:var(--feature-text)}
+.pts li::before{content:"";position:absolute;left:0;top:.75em;width:12px;height:1px;background:var(--accent)}
+.case.dk .pts li::before{background:var(--feature-icon,var(--accent))}
+.case .tagrow{margin-top:auto;padding-top:22px}
+.indep{margin-top:18px;display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.ind{display:flex;flex-direction:column;gap:10px;padding:26px 28px;border-radius:var(--radius-card);border:1px dashed var(--line-strong);transition:border-color .3s,background .3s}
+.ind:hover{border-color:var(--accent);background:var(--surface)}
+.ind .pill,.pill-x{align-self:flex-start;font-family:var(--font-label);font-size:.72rem;padding:4px 9px;border-radius:var(--radius-chip);background:var(--warn-bg);color:var(--warn-ink)}
+.pill-x{display:inline-block}
+.ind h3{font-family:var(--font-display);font-size:1.15rem;font-weight:var(--h2-weight);letter-spacing:-.02em}
+.ind p{color:var(--muted);font-size:.96rem}
+.ind .link{font-size:.92rem;margin-top:4px}
+@media (max-width:820px){.cases,.indep{grid-template-columns:1fr}.case.wide{grid-column:auto;grid-template-columns:1fr;gap:0}}
+
+/* US (band) */
+.us-grid{margin-top:var(--space-7);display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.us{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-card);padding:32px 28px 36px}
+.us .k{font-family:var(--font-label);font-size:var(--fs-label);color:var(--accent-text);letter-spacing:.04em}
+.us h3{margin-top:14px;font-family:var(--font-display);font-size:1.3rem;font-weight:var(--h2-weight);letter-spacing:-.02em;line-height:1.2}
+.us p{margin-top:12px;color:var(--muted);font-size:.97rem}
+@media (max-width:900px){.us-grid{grid-template-columns:1fr}}
+
+/* stack */
+.stack{display:grid;grid-template-columns:repeat(3,1fr);gap:40px var(--space-5)}
+.grp h3{font-family:var(--font-label);font-size:var(--fs-small);font-weight:500;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.grp ul{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
+.grp li{font-size:.88rem;padding:7px 13px;border-radius:var(--radius-chip);border:1px solid var(--line);background:var(--surface)}
+@media (max-width:900px){.stack{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.stack{grid-template-columns:1fr}}
+
+/* experience */
+.tl{margin-top:var(--space-7);max-width:760px}
+.tl li{position:relative;padding:0 0 40px 34px}
+.tl li::before{content:"";position:absolute;left:5px;top:12px;bottom:-4px;width:1px;background:var(--line-strong)}
+.tl li:last-child::before{display:none}
+.tl li::after{content:"";position:absolute;left:0;top:6px;width:11px;height:11px;border-radius:50%;background:var(--bg-alt);border:1px solid var(--accent)}
+.tl li:first-child::after{background:var(--accent)}
+.tl .yr{font-family:var(--font-label);font-size:var(--fs-label);color:var(--accent-text)}
+.tl h3{margin-top:6px;font-family:var(--font-display);font-size:1.3rem;font-weight:var(--h2-weight);letter-spacing:-.02em;line-height:1.25}
+.tl h3 small{display:block;font-family:var(--font-body);font-size:1rem;font-weight:400;color:var(--muted);margin-top:2px;letter-spacing:0}
+.tl p{margin-top:8px;color:var(--muted);max-width:60ch}
+.tl .promo{display:inline-block;margin-top:10px;font-family:var(--font-label);font-size:.72rem;padding:4px 9px;border-radius:var(--radius-chip);background:var(--accent-soft);color:var(--accent-text)}
+
+/* research */
+.research{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:start}
+.research .sub{max-width:40ch}
+.research .link{display:inline-block;margin-top:26px}
+.metrics{background:var(--surface);border:var(--card-border);border-radius:var(--radius-card);padding:32px 30px}
+.legend{display:flex;gap:22px;font-family:var(--font-label);font-size:var(--fs-label);color:var(--muted);margin-bottom:24px}
+.legend i{display:inline-block;width:10px;height:10px;margin-right:7px;vertical-align:-1px;border-radius:2px}
+.lg-p{background:var(--line-strong)}.lg-q{background:var(--accent)}
+.m{padding:16px 0;border-top:1px solid var(--line)}
+.m:first-of-type{border-top:0;padding-top:0}
+.m-top{display:flex;justify-content:space-between;gap:12px;font-size:.96rem;font-weight:500}
+.m-top em{font-style:normal;font-family:var(--font-label);font-size:.86rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.m-top em b{color:var(--accent-text);font-weight:500}
+.bars{margin-top:10px;display:grid;gap:5px}
+.bar{height:6px;background:var(--surface-2);overflow:hidden;border-radius:var(--radius-chip)}
+.bar s{display:block;height:100%;width:0;background:var(--line-strong);transition:width 1.4s var(--ease)}
+.bar.q s{background:var(--accent)}
+.fine{margin-top:22px;font-size:.82rem;color:var(--muted);line-height:1.5}
+.pill-x{margin-left:4px}
+.acad{margin-top:clamp(56px,7vw,88px);display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:end;padding:36px 34px 38px;border-radius:var(--radius-card);background:var(--surface);border:var(--card-border)}
+.acad .pill-a{display:inline-block;font-family:var(--font-label);font-size:.72rem;padding:4px 9px;border-radius:var(--radius-chip);background:var(--accent-soft);color:var(--accent-text)}
+.acad .k{margin-top:14px;font-family:var(--font-label);font-size:var(--fs-label);color:var(--muted)}
+.acad h3{margin-top:10px;font-family:var(--font-display);font-size:clamp(1.35rem,2.3vw,1.8rem);font-weight:var(--h2-weight);letter-spacing:var(--h2-track);line-height:1.2;max-width:28ch;text-wrap:balance}
+.acad h3+p{margin-top:12px;color:var(--muted);max-width:52ch}
+.acad .pts{margin-top:0}
+@media (max-width:900px){.research{grid-template-columns:1fr;gap:44px}.acad{grid-template-columns:1fr;gap:28px;padding:28px 22px 30px}}
+
+/* writing */
+.filters{margin:36px 0 18px;display:flex;flex-wrap:wrap;gap:8px}
+.filters button{font:500 .82rem var(--font-label);padding:8px 14px;border-radius:var(--radius-btn);border:1px solid var(--line-strong);background:transparent;color:var(--text);cursor:pointer;transition:background .25s,color .25s,border-color .25s}
+.filters button:hover{border-color:var(--text)}
+.filters button.on{background:var(--btn-bg);color:var(--btn-ink);border-color:var(--btn-bg)}
+.arts li a{display:grid;grid-template-columns:110px 1fr 120px 24px;gap:20px;align-items:center;padding:22px 6px;border-top:1px solid var(--line);position:relative;transition:padding .45s var(--ease)}
+.arts li a::before{content:"";position:absolute;inset:0;background:var(--accent-soft);transform:scaleY(0);transform-origin:bottom;transition:transform .45s var(--ease);z-index:0}
+.arts li a>*{position:relative;z-index:1}
+.arts li:last-child a{border-bottom:1px solid var(--line)}
+.arts li a:hover{padding-left:16px;padding-right:12px}
+.arts li a:hover::before{transform:scaleY(1)}
+.arts .pf{font-family:var(--font-label);font-size:var(--fs-label);color:var(--muted)}
+.arts .t{font-family:var(--font-display);font-size:1.1rem;font-weight:var(--h2-weight);letter-spacing:-.015em;line-height:1.35}
+.arts .d{font-family:var(--font-label);font-size:var(--fs-label);color:var(--muted);text-align:right}
+.arts .ar{color:var(--accent-text);font-size:1.15rem;transition:transform .3s var(--ease)}
+.arts li a:hover .ar{transform:translate(3px,-3px)}
+@media (max-width:734px){.arts li a{grid-template-columns:1fr 20px;gap:4px 12px}.arts .pf,.arts .t{grid-column:1}.arts .d{grid-column:1;text-align:left}.arts .ar{grid-column:2;grid-row:1/4}}
+
+/* credentials */
+.creds{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.cred{background:var(--surface);border:var(--card-border);border-radius:var(--radius-card);padding:30px 28px 32px}
+.cred>h3{font-family:var(--font-label);font-size:var(--fs-label);font-weight:500;color:var(--muted);margin-bottom:6px}
+.cred li{padding:16px 0;border-top:1px solid var(--line)}
+.cred li:first-child{border-top:0}
+.cred li b{display:block;font-family:var(--font-display);font-size:1.05rem;font-weight:600;letter-spacing:-.015em;line-height:1.3}
+.cred li span{display:block;margin-top:3px;font-size:.92rem;color:var(--muted)}
+.cred li .y{font-family:var(--font-label);font-size:var(--fs-label);color:var(--accent-text);margin:0 0 3px}
+.cisa{margin-top:28px;font-size:.92rem;color:var(--muted);max-width:80ch}
+.cisa b{color:var(--text);font-weight:600}
+@media (max-width:900px){.creds{grid-template-columns:1fr}}
+
+/* contact (band) */
+.contact{text-align:center}
+.contact .h2{margin:0 auto;font-size:clamp(3rem,9vw,6.5rem);max-width:none;letter-spacing:var(--h1-track)}
+.contact .sub{margin:22px auto 0}
+.contact .ctas{margin-top:40px;display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+footer{background:var(--band-bg);color:var(--band-muted);font-family:var(--font-label);font-size:var(--fs-label);padding:26px 0 34px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;border-top:1px solid var(--band-line);padding-top:22px}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js .rv{opacity:1;transform:none;transition:none}
+  .statement{height:auto}.statement .stick{position:static;height:auto;padding:120px 0}
+  .statement .w{color:var(--text)}
+  .card,.card:hover{transform:none;transition:none}
+}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="assets/portrait.webp" alt="" width="26" height="26">Naveed Akram</a>
+    <nav aria-label="Primary"><ul>
+      <li><a href="#deliver">What I deliver</a></li>
+      <li><a href="#work">Selected work</a></li>
+      <li><a href="#stack">Stack</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#writing">Writing</a></li>
+      <li><a href="#credentials">Credentials</a></li>
+    </ul></nav>
+    <a class="cta-s" href="#contact">Contact</a>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-in">
+      <div>
+        <p class="eyebrow rv">Naveed Akram &middot; Senior Solution Architect, Secure Payments and Banking Middleware</p>
+        <h1 class="rv d1">Providing solutions for <span class="acc">security in digital payments.</span></h1>
+        <p class="lede rv d2">I architect and deliver the secure middleware that connects <b>ATMs, POS and digital channels</b> to core banking. I take platforms from <b>discovery to go-live</b> across multiple countries.</p>
+        <div class="ctas rv d3">
+          <a class="btn primary" href="#work">See selected work</a>
+          <a class="link" href="https://www.linkedin.com/in/nakram83/" target="_blank" rel="noopener">Message me on LinkedIn &rsaquo;</a>
+        </div>
+      </div>
+      <div class="visual portrait-frame rv d2" id="visual">
+        <picture>
+          <source srcset="assets/portrait.webp" type="image/webp">
+          <img src="assets/portrait.jpg" alt="Portrait of Naveed Akram" width="744" height="887">
+        </picture>
+        <canvas id="gl" aria-hidden="true"></canvas>
+      </div>
+    </div>
+    <div class="chips rv" aria-label="Core areas">
+      <span>Vynamic Middleware</span><span>ISO 8583</span><span>EMV</span><span>PCI DSS</span><span>TLS mutual authentication</span><span>Core banking integration</span><span>Fraud detection</span>
+    </div>
+  </div>
+</section>
+
+<!-- STATEMENT -->
+<section class="statement" id="about" aria-label="About">
+  <div class="stick"><div class="wrap">
+    <p id="stmt">For fifteen years I have built the layer between payment devices and the banks behind them. Every authorization, reversal and settlement passes through it. When it is weak, <span data-hl>the whole payment chain is exposed.</span></p>
+  </div></div>
+</section>
+
+<!-- IMPACT -->
+<section aria-label="Impact" style="padding-bottom:clamp(90px,12vw,150px)">
+  <div class="wrap">
+    <div class="impact">
+      <div class="imp rv"><b><span data-count="15">15</span></b><span>years in banking and payments, since 2011</span></div>
+      <div class="imp rv d1"><b>Tier-1</b><span>banks across the Middle East and Asia</span></div>
+      <div class="imp rv d2"><b><span data-count="7">7</span>+</b><span>countries of delivery and rollout</span></div>
+      <div class="imp rv d3"><b>1,000s</b><span>of ATMs, POS terminals and kiosks</span></div>
+      <div class="imp rv d4"><b>Millions</b><span>of daily transactions on national banking services</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT I DELIVER -->
+<section class="alt pad" id="deliver">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow rv">What I deliver</p>
+      <h2 class="h2 rv d1">Secure payment platforms, end to end.</h2>
+    </div>
+    <div class="bento">
+      <article class="card feature wide rv">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><rect x="8" y="7" width="24" height="8" rx="2"/><rect x="8" y="16" width="24" height="8" rx="2"/><rect x="8" y="25" width="24" height="8" rx="2"/><path d="M13 11h.01M13 20h.01M13 29h.01"/></svg>
+        <h3>ATM, POS and kiosk middleware at national scale.</h3>
+        <p>Architecture and rollout of Vynamic Middleware for Tier-1 banks, with high-availability design for services that cannot go down.</p>
+        <div class="tagrow"><span>Vynamic Middleware</span><span>High availability</span><span>Device integration</span></div>
+      </article>
+      <article class="card rv d1">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><rect x="6" y="9" width="28" height="22" rx="4"/><path d="M6 15h28M11 25h7"/><rect x="24" y="21" width="6" height="5" rx="1"/></svg>
+        <h3>Secure transaction flows</h3>
+        <p>Real-time payment flows on ISO 8583 with TLS mutual authentication, tokenized card issuance and EMV.</p>
+      </article>
+      <article class="card rv">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><ellipse cx="20" cy="10" rx="11" ry="4"/><path d="M9 10v20c0 2.2 4.9 4 11 4s11-1.8 11-4V10M9 20c0 2.2 4.9 4 11 4s11-1.8 11-4"/></svg>
+        <h3>Core banking integration</h3>
+        <p>Instant approvals with full audit trails and real-time fraud checks in the transaction path.</p>
+      </article>
+      <article class="card rv d1">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><rect x="12" y="5" width="16" height="30" rx="3"/><path d="M18 30h4"/></svg>
+        <h3>Digital channel APIs</h3>
+        <p>Custom APIs for mobile wallets, balance inquiry and cardless cash withdrawal.</p>
+      </article>
+      <article class="card rv d2">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 5l12 5v9c0 8-5.5 13.5-12 16-6.5-2.5-12-8-12-16v-9z"/><path d="M14.5 20l4 4 7-8"/></svg>
+        <h3>Compliance that works</h3>
+        <p>PCI DSS and EMV controls built into the design, plus PA-DSS application certification experience.</p>
+      </article>
+      <article class="card wide rv">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M4 22h7l4-10 6 18 4-12 3 4h8"/></svg>
+        <h3>Fraud detection, from product to research.</h3>
+        <p>From the Vigilus fraud detection product to real-time fraud checks in core banking flows, now extended with machine learning in my own open source research.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- HOW I DELIVER -->
+<section class="band pad" id="how">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow rv">How I deliver</p>
+      <h2 class="h2 rv d1">From the first workshop <span class="acc">to go-live.</span></h2>
+    </div>
+    <ol class="steps">
+      <li class="step rv"><h3>Discover</h3><p>Feasibility assessments and discovery workshops with banks, government entities and partners.</p></li>
+      <li class="step rv d1"><h3>Architect</h3><p>Solution architecture documents, API specifications and security designed in from the start.</p></li>
+      <li class="step rv d2"><h3>Integrate</h3><p>Devices, channels, card systems and core banking connected through secure middleware.</p></li>
+      <li class="step rv d3"><h3>Deploy and UAT</h3><p>On-site deployment, configuration and user acceptance testing in the UAE, Egypt, Pakistan and East Africa.</p></li>
+      <li class="step rv d4"><h3>Train and hand over</h3><p>Product training for bank teams, plus internal and partner training on ISO 8583, secure mobile wallet integration and cloud architecture.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- SELECTED WORK -->
+<section class="alt pad" id="work">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow rv">Selected work</p>
+      <h2 class="h2 rv d1">Programs I have led.</h2>
+      <p class="sub rv d2">Client names are kept confidential. Banks in the UAE, Egypt and Pakistan have sent letters of appreciation for this work.</p>
+    </div>
+    <div class="cases">
+      <article class="case wide dk rv">
+        <div>
+          <p class="k">01 &middot; Middle East, Turkey, Singapore, Southeast Asia</p>
+          <h3>Multi-country ATM and POS middleware rollout for Tier-1 banks.</h3>
+          <p>End-to-end architecture and rollout of Vynamic Middleware, powering thousands of ATMs, POS terminals and kiosks.</p>
+        </div>
+        <div>
+          <ul class="pts">
+            <li>Led architecture from discovery through go-live</li>
+            <li>High-availability design for millions of daily transactions</li>
+            <li>National-level banking services</li>
+          </ul>
+          <div class="tagrow"><span>Vynamic Middleware</span><span>High availability</span><span>Multi-country</span></div>
+        </div>
+      </article>
+      <article class="case rv">
+        <p class="k">02 &middot; Diebold Nixdorf</p>
+        <h3>Secure real-time transaction flows.</h3>
+        <p>Payment flows hardened at every hop between device, switch and bank.</p>
+        <div class="tagrow"><span>ISO 8583</span><span>TLS mutual auth</span><span>Tokenized issuance</span><span>EMV</span><span>PCI DSS</span></div>
+      </article>
+      <article class="case rv d1">
+        <p class="k">03 &middot; Diebold Nixdorf</p>
+        <h3>Digital channel extensions.</h3>
+        <p>Custom APIs that extend bank infrastructure to mobile wallets, balance inquiry and cardless cash withdrawal.</p>
+        <div class="tagrow"><span>Mobile wallet</span><span>Cardless cash</span><span>REST APIs</span></div>
+      </article>
+      <article class="case rv">
+        <p class="k">04 &middot; Diebold Nixdorf</p>
+        <h3>Core banking integration with built-in controls.</h3>
+        <p>Instant approvals backed by full audit trails and real-time fraud detection.</p>
+        <div class="tagrow"><span>Core banking</span><span>Audit trail</span><span>Real-time fraud checks</span></div>
+      </article>
+      <article class="case rv d1">
+        <p class="k">05 &middot; Avanza Solutions, 2012 to 2016</p>
+        <h3>Vigilus fraud detection and a PA-DSS certified rollout.</h3>
+        <p>Built the Vigilus fraud detection product, winner of the P@SHA ICT Award 2013. Led PA-DSS application certification and rollout in 2015, alongside payment gateway, smart card issuance and core banking integration work.</p>
+        <div class="tagrow"><span>Vigilus</span><span>PA-DSS</span><span>Payment gateways</span><span>Smart cards</span></div>
+      </article>
+    </div>
+    <div class="indep">
+      <a class="ind rv" href="#research">
+        <span class="pill">Independent, experimental</span>
+        <h3>Transaction sequence anomaly detection</h3>
+        <p>Open source research comparing point and sequence-aware fraud detection on synthetic card data.</p>
+        <span class="link">See the results &rsaquo;</span>
+      </a>
+      <a class="ind rv d1" href="https://naveedakram.hashnode.dev/building-ai-powered-developer-tools-with-local-llms-architecture-privacy-and-practical-challenges" target="_blank" rel="noopener">
+        <span class="pill">Independent, experimental</span>
+        <h3>Developer tools with local LLMs</h3>
+        <p>Architecture, privacy and practical lessons from building AI developer tools that run locally.</p>
+        <span class="link">Read the article &rsaquo;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- US CONTEXT -->
+<section class="band pad" id="us">
+  <div class="wrap">
+    <p class="eyebrow rv">Why this work matters in the United States</p>
+    <h2 class="h2 rv d1" style="max-width:21ch">As US payments move to real time, <span class="acc">the middleware layer carries more of the risk.</span></h2>
+    <div class="us-grid">
+      <article class="us rv"><p class="k">REAL-TIME PAYMENTS</p><h3>Less time to stop fraud.</h3><p>The Federal Reserve's FedNow Service settles payments in seconds, around the clock. When money moves that fast, fraud checks have to run inside the message path. That is the kind of layer I have built for banks in the Middle East and Asia.</p></article>
+      <article class="us rv d1"><p class="k">SHARED STANDARDS</p><h3>The same building blocks.</h3><p>US ATM and POS networks run on the standards I deliver every day: ISO 8583 messaging, EMV chip cards and PCI DSS. The lessons carry over directly.</p></article>
+      <article class="us rv d2"><p class="k">CRITICAL INFRASTRUCTURE</p><h3>Payments are critical infrastructure.</h3><p>CISA lists financial services among the 16 critical infrastructure sectors. I treat payment middleware the same way, and I am completing CISA training in industrial control systems security.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- STACK -->
+<section class="pad" id="stack">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow rv">Tech stack</p>
+      <h2 class="h2 rv d1">Tools I build with.</h2>
+    </div>
+    <div class="stack">
+      <div class="grp rv"><h3>Payments and security</h3><ul><li>ISO 8583</li><li>EMV</li><li>PCI DSS</li><li>PA-DSS</li><li>TLS mutual auth</li><li>Tokenization</li><li>Vynamic Middleware</li></ul></div>
+      <div class="grp rv d1"><h3>Languages and frameworks</h3><ul><li>C#</li><li>.NET and .NET Core</li><li>Java</li><li>Angular</li><li>Swift</li></ul></div>
+      <div class="grp rv d2"><h3>Architecture</h3><ul><li>Microservices</li><li>Event-driven</li><li>Domain-driven design</li><li>SOA</li><li>REST and SOAP</li><li>Multi-tenant</li></ul></div>
+      <div class="grp rv"><h3>Data</h3><ul><li>Oracle</li><li>SQL Server</li><li>PostgreSQL</li><li>MySQL</li></ul></div>
+      <div class="grp rv d1"><h3>Cloud</h3><ul><li>AWS</li><li>Azure</li><li>Cloud architecture for financial applications</li></ul></div>
+      <div class="grp rv d2"><h3>Delivery</h3><ul><li>Jenkins</li><li>Azure DevOps</li><li>Git</li><li>CI/CD</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="alt pad" id="experience">
+  <div class="wrap">
+    <p class="eyebrow rv">Experience</p>
+    <h2 class="h2 rv d1">Fifteen years inside payment systems.</h2>
+    <ul class="tl">
+      <li class="rv"><p class="yr">2023 to present &middot; Dubai, UAE</p><h3>Senior Solution Architect<small>Diebold Nixdorf</small></h3><p>Leading architecture and delivery of secure ATM, POS and digital banking platforms for Tier-1 banks across the Middle East, Turkey, Singapore and Southeast Asia.</p><span class="promo">Promoted in 2023</span></li>
+      <li class="rv"><p class="yr">2016 to 2023 &middot; Dubai, UAE</p><h3>Architect Technology Solutions<small>Diebold Nixdorf</small></h3><p>Architecture, on-site deployment and UAT for middleware, core banking integration and digital channel APIs in the UAE, Egypt, Pakistan and East Africa.</p></li>
+      <li class="rv"><p class="yr">2012 to 2016 &middot; Karachi</p><h3>Senior Software Engineer, Senior Product Developer<small>Avanza Solutions</small></h3><p>Payment gateways, smart card issuance and core banking integration. Built the Vigilus fraud detection product and led its PA-DSS application certification and rollout.</p></li>
+      <li class="rv"><p class="yr">2011 to 2012</p><h3>Software Engineer<small>SPCTEK</small></h3><p>Where my career in software started.</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section class="pad" id="research">
+  <div class="wrap research">
+    <div>
+      <p class="eyebrow rv">Research and open source <span class="pill-x">Independent, experimental</span></p>
+      <h2 class="h2 rv d1">Fraud has a pattern.</h2>
+      <p class="sub rv d2">Point vs sequence-aware anomaly detection on synthetic card transactions. Same model, same data, same seed. The only difference is whether each transaction can see its card's recent history.</p>
+      <a class="link rv d3" href="https://github.com/naveedakram83/transaction-sequence-anomaly-detection" target="_blank" rel="noopener">View the code on GitHub &rsaquo;</a>
+    </div>
+    <div class="metrics rv d1" id="metrics">
+      <div class="legend"><span><i class="lg-p"></i>Point features</span><span><i class="lg-q"></i>Sequence-aware</span></div>
+      <div id="met"></div>
+      <p class="fine">Isolation Forest on about 86,000 synthetic transactions. The data is synthetic, so exact numbers will not transfer to production. The direction of the result should.</p>
+    </div>
+  </div>
+  <div class="wrap">
+    <article class="acad rv">
+      <div>
+        <span class="pill-a">Academic research</span>
+        <p class="k">MSc Artificial Intelligence dissertation &middot; University of West London</p>
+        <h3>Adaptive Traffic Signal Control Using Reinforcement Learning Across Multiple Traffic Scenarios</h3>
+        <p>A multi-scenario evaluation of DQN, DDQN and PPO signal control in SUMO, showing how baseline strength, training variability and metric choice change the conclusions.</p>
+      </div>
+      <ul class="pts">
+        <li>Primary DQN agent trained on medium demand, then tested without retraining on low, medium, high, rush-hour and uneven demand</li>
+        <li>Extensions: DDQN, PPO, a two-intersection corridor and emergency-vehicle-aware control</li>
+        <li>8 scenario configurations in the SUMO traffic simulator</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<!-- WRITING -->
+<section class="alt pad" id="writing">
+  <div class="wrap">
+    <p class="eyebrow rv">Writing</p>
+    <h2 class="h2 rv d1">Notes from the payment layer.</h2>
+    <p class="sub rv d2">Articles on middleware, EMV, ISO 8583, fraud detection and resilient systems.</p>
+    <div class="filters rv" id="filters" role="group" aria-label="Filter articles by platform"></div>
+    <ul class="arts" id="arts"></ul>
+  </div>
+</section>
+
+<!-- CREDENTIALS -->
+<section class="pad" id="credentials">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow rv">Credentials</p>
+      <h2 class="h2 rv d1">Certified, educated, recognized.</h2>
+    </div>
+    <div class="creds">
+      <div class="cred rv">
+        <h3>Certifications</h3>
+        <ul>
+          <li><b>AWS Certified Solutions Architect, Associate</b><span>Amazon Web Services</span></li>
+          <li><b>Microsoft Azure Fundamentals</b><span>Microsoft</span></li>
+          <li><b>MCTS 70-515 and 70-516</b><span>Microsoft Certified Technology Specialist</span></li>
+        </ul>
+      </div>
+      <div class="cred rv d1">
+        <h3>Education</h3>
+        <ul>
+          <li><p class="y">Postgraduate</p><b>MSc Artificial Intelligence</b><span>University of West London. Dissertation submitted September 2026. Modules include Machine Learning, Deep Learning, Research Methods and Big Data Analytics.</span></li>
+          <li><p class="y">2010</p><b>BE Software Engineering</b><span>Mehran UET. First in class all four years, 88.55% (3.95 GPA). Silver Medalist, batch valedictorian and Microsoft Student Ambassador.</span></li>
+        </ul>
+      </div>
+      <div class="cred rv d2">
+        <h3>Awards</h3>
+        <ul>
+          <li><p class="y">2023</p><b>Employee of the Month, APMEA Region</b><span>Diebold Nixdorf, Q1</span></li>
+          <li><p class="y">2016</p><b>Innovator of the Year</b><span>Emirates National Bank of Dubai (team award)</span></li>
+          <li><p class="y">2016</p><b>Best Technological Innovation Award</b><span>Cards and Payments Conference (team award)</span></li>
+          <li><p class="y">2013</p><b>P@SHA ICT Award</b><span>For Vigilus, financial fraud detection</span></li>
+        </ul>
+      </div>
+    </div>
+    <p class="cisa rv"><b>CISA training:</b> 401V ICS Cybersecurity (Virtual), 210W-01 Differences in Deployments of Industrial Control Systems and 210W-02 Influence of IT Components on Industrial Control Systems completed. Further courses in progress.</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="band pad contact" id="contact">
+  <div class="wrap">
+    <h2 class="h2 rv">Let's <span class="acc">talk.</span></h2>
+    <p class="sub rv d1">Planning a payment platform, a middleware rollout or a security upgrade? The best way to reach me is a message on LinkedIn.</p>
+    <div class="ctas rv d2">
+      <a class="btn primary" href="https://www.linkedin.com/in/nakram83/" target="_blank" rel="noopener">Message me on LinkedIn</a>
+      <a class="btn ghost" href="https://github.com/naveedakram83" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn ghost" href="https://naveedakram.hashnode.dev" target="_blank" rel="noopener">Hashnode</a>
+      <a class="btn ghost" href="https://dev.to/naveedakram" target="_blank" rel="noopener">DEV</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap"><span>&copy; <span id="yr">2026</span> Naveed Akram</span><span>Providing solutions for security in digital payments.</span></div></footer>
+
+<script>
+(function(){
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+$('#yr').textContent=new Date().getFullYear();
+
+/* articles */
+const ARTICLES=[
+["What Is Middleware in Banking Systems?","LinkedIn","2025-06-29","https://www.linkedin.com/pulse/what-middleware-banking-systems-naveed-akram-vsobf"],
+["Why Digital Payment Security Fails at the Middleware Layer and How to Fix It","Medium","2026-05-31","https://medium.com/@naveed.akram15683/why-digital-payment-security-fails-at-the-middleware-layer-and-how-to-fix-it-dae5b58da0ba"],
+["EMV Implementation Done Wrong: Security Vulnerabilities No One Talks About","Medium","2026-05-31","https://medium.com/@naveed.akram15683/emv-implementation-done-wrong-security-vulnerabilities-no-one-talks-about-a0873dfdfea1"],
+["Securing Cross-Border Payment Infrastructure","Medium","2026-06-01","https://medium.com/@naveed.akram15683/securing-cross-border-payment-infrastructure-middleware-controls-for-resilient-banking-systems-30586e4fde4b"],
+["AI-Driven Fraud Detection in Payment Middleware","Medium","2026-07-14","https://medium.com/@naveed.akram15683/ai-driven-fraud-detection-in-payment-middleware-where-the-real-risk-hides-b12a5cc23ffd"],
+["Designing Resilient Transaction Processing Systems","Medium","2026-11-08","https://medium.com/@naveed.akram15683/designing-resilient-transaction-processing-systems-architectural-patterns-for-failure-recovery-and-60372c4224e9"],
+["PCI DSS Is Not Enough: Securing ATM and POS Networks Beyond Compliance","Medium","2026-11-08","https://medium.com/@naveed.akram15683/pci-dss-is-not-enough-securing-atm-and-pos-networks-beyond-compliance-f0bba1409f28"],
+["How ISO 8583 Message Security Becomes a National Risk When Misconfigured","Medium","2026-11-08","https://medium.com/@naveed.akram15683/how-iso-8583-message-security-becomes-a-national-risk-when-misconfigured-cfe652e6a982"],
+["Validating ISO 8583 Messages in Code","DEV","2026-11-08","https://dev.to/naveedakram/validating-iso-8583-messages-in-code-a-practical-guide-for-developers-2hj1"],
+["Lessons from Deploying Mission-Critical Applications on Kubernetes","DEV","2026-10-25","https://dev.to/naveedakram/lessons-from-deploying-mission-critical-applications-on-kubernetes-reliability-configuration-and-4doe"],
+["Building AI-Powered Developer Tools with Local LLMs","Hashnode","2026-10-25","https://naveedakram.hashnode.dev/building-ai-powered-developer-tools-with-local-llms-architecture-privacy-and-practical-challenges"],
+["Beyond Architecture Diagrams: How Real-World Constraints Shape Enterprise Technology Decisions","Medium","2026-10-25","https://medium.com/@naveed.akram15683/beyond-architecture-diagrams-how-real-world-constraints-shape-enterprise-technology-decisions-ba132b92746a"]
+].map(([title,platform,date,url])=>({title,platform,date,url})).sort((a,b)=>b.date.localeCompare(a.date));
+const fmtDate=d=>new Date(d+'T00:00:00').toLocaleDateString('en-US',{year:'numeric',month:'short',day:'numeric'});
+const el=(t,c,txt)=>{const e=document.createElement(t);if(c)e.className=c;if(txt!=null)e.textContent=txt;return e};
+function renderArts(f){
+  $('#arts').replaceChildren(...ARTICLES.filter(a=>f==='All'||a.platform===f).map(a=>{
+    const li=el('li'),l=el('a');l.href=a.url;l.target='_blank';l.rel='noopener';
+    const ar=el('span','ar','↗');ar.setAttribute('aria-hidden','true');
+    l.append(el('span','pf',a.platform),el('span','t',a.title),el('span','d',fmtDate(a.date)),ar);li.append(l);return li}));
+}
+const plats=['All',...new Set(ARTICLES.map(a=>a.platform))];
+$('#filters').replaceChildren(...plats.map(p=>{
+  const n=p==='All'?ARTICLES.length:ARTICLES.filter(a=>a.platform===p).length;
+  const b=el('button',p==='All'?'on':'',`${p} (${n})`);b.type='button';b.setAttribute('aria-pressed',p==='All');
+  b.onclick=()=>{$$('#filters button').forEach(x=>{x.classList.toggle('on',x===b);x.setAttribute('aria-pressed',x===b)});renderArts(p)};return b}));
+renderArts('All');
+
+/* metrics, as in the GitHub README */
+const M=[['PR-AUC',.046,.828,1,v=>v.toFixed(3)],['Precision in top-k alerts',9.2,79.1,100,v=>v.toFixed(1)+'%'],['Card testing caught',13.7,92.3,100,v=>v.toFixed(1)+'%'],['Account takeover caught',16.7,87.5,100,v=>v.toFixed(1)+'%'],['Velocity bursts caught',0,58.3,100,v=>v.toFixed(1)+'%']];
+$('#met').innerHTML=M.map(([l,p,q,m,f])=>`<div class="m"><div class="m-top"><span>${l}</span><em>${f(p)} &rarr; <b>${f(q)}</b></em></div><div class="bars"><div class="bar"><s data-w="${Math.max(p/m*100,.8)}"></s></div><div class="bar q"><s data-w="${q/m*100}"></s></div></div></div>`).join('');
+const fillBars=()=>$$('#met s').forEach(s=>s.style.width=s.dataset.w+'%');
+
+/* reveal on scroll */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);
+  if(e.target.id==='metrics')fillBars();
+  e.target.querySelectorAll('[data-count]').forEach(countUp);}}),{threshold:.15,rootMargin:'0px 0px -6% 0px'});
+$$('.rv').forEach(n=>io.observe(n));
+if(RM)fillBars();
+function countUp(n){const to=+n.dataset.count;if(RM){n.textContent=to;return}const t0=performance.now(),D=1400;
+  const f=t=>{const k=Math.min((t-t0)/D,1);n.textContent=Math.round(to*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(f)};requestAnimationFrame(f)}
+
+/* statement: words light up with scroll */
+const st=$('#stmt'),words=[];
+(function split(node,hl){[...node.childNodes].forEach(c=>{
+  if(c.nodeType===3){const frag=document.createDocumentFragment();c.textContent.split(/(\s+)/).forEach(w=>{if(!w)return;if(/^\s+$/.test(w)){frag.append(w);return}const s=el('span','w'+(hl?' hl':''),w);words.push(s);frag.append(s)});c.replaceWith(frag)}
+  else split(c,hl||c.hasAttribute('data-hl'))})})(st,false);
+const sec=$('.statement');
+function onStmt(){const r=sec.getBoundingClientRect(),total=r.height-innerHeight;const p=Math.min(Math.max(-r.top/(total*.8),0),1);
+  const k=Math.round(p*words.length);words.forEach((w,i)=>w.classList.toggle('on',i<k))}
+
+/* nav switches style over light sections */
+const nav=$('#nav'),darks=$$('.band');
+function onNav(){const y=26;let dark=false;for(const d of darks){const r=d.getBoundingClientRect();if(r.top<=y&&r.bottom>=y){dark=true;break}}nav.classList.toggle('on-band',dark)}
+let tk=false;addEventListener('scroll',()=>{if(tk)return;tk=true;requestAnimationFrame(()=>{tk=false;onNav();if(!RM)onStmt()})},{passive:true});
+onNav();if(!RM)onStmt();else words.forEach(w=>w.classList.add('on'));
+addEventListener('load',()=>{onNav();if(!RM)onStmt()});addEventListener('hashchange',onNav);
+/* expertise cards: soft accent light follows the pointer */
+if(!RM&&matchMedia('(hover:hover)').matches)$$('.card').forEach(c=>c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect();c.style.setProperty('--cx',(e.clientX-r.left)+'px');c.style.setProperty('--cy',(e.clientY-r.top)+'px')}));
+})();
+</script>
+
+<!-- the one 3D moment: portrait card with depth parallax and light -->
+<script type="module">
+import * as THREE from 'three';
+const visual=document.getElementById('visual'),canvas=document.getElementById('gl');
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(location.protocol!=='file:'){
+try{
+  const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true,powerPreference:'high-performance'});
+  renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+  const scene=new THREE.Scene();
+  const camera=new THREE.PerspectiveCamera(28,1,.1,50);camera.position.z=5;
+  const IMG=744/887;
+  const uni={map:{value:null},mouse:{value:new THREE.Vector2()},size:{value:new THREE.Vector2(IMG,1)},radius:{value:0},reveal:{value:0}};
+  const mat=new THREE.ShaderMaterial({transparent:true,uniforms:uni,
+    vertexShader:`varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`,
+    fragmentShader:`
+      precision highp float;
+      uniform sampler2D map;uniform vec2 mouse;uniform vec2 size;uniform float radius;uniform float reveal;
+      varying vec2 vUv;
+      float depth(vec2 uv){
+        float head=1.-smoothstep(.02,.24,length((uv-vec2(.5,.76))*vec2(1.,.85)));
+        float body=1.-smoothstep(.12,.6,length((uv-vec2(.52,.28))*vec2(.85,1.15)));
+        return clamp(max(head,body*.75),0.,1.);
+      }
+      void main(){
+        float dz=depth(vUv);
+        vec2 uv=vUv+mouse*(dz-.35)*.022;
+        uv=(uv-.5)/(1.05+.03*(1.-reveal))+.5;
+        vec3 col=texture2D(map,uv).rgb;
+        col=vec3(dot(col,vec3(.299,.587,.114)));col=clamp((col-.5)*1.06+.5,0.,1.);
+        float band=(vUv.x*.8+vUv.y)-(1.05+mouse.x*.35-mouse.y*.25);
+        col+=vec3(1.)*exp(-band*band*18.)*.07*(.4+dz);
+        col*=.92+.12*dz;
+        vec2 p=(vUv-.5)*size;vec2 q=abs(p)-(size*.5-radius);
+        float d=length(max(q,0.))+min(max(q.x,q.y),0.)-radius;
+        float fw=fwidth(d);
+        float a=1.-smoothstep(-fw,fw,d);
+        col+=vec3(1.)*(1.-smoothstep(0.,fw*2.5,abs(d+fw*1.5)))*.10;
+        gl_FragColor=vec4(col,a*reveal);
+      }`});
+  const card=new THREE.Mesh(new THREE.PlaneGeometry(IMG,1,1,1),mat);
+  scene.add(card);
+
+  const sh=document.createElement('canvas');sh.width=sh.height=128;const g=sh.getContext('2d');
+  const rg=g.createRadialGradient(64,64,0,64,64,64);rg.addColorStop(0,'rgba(0,0,0,.75)');rg.addColorStop(1,'rgba(0,0,0,0)');g.fillStyle=rg;g.fillRect(0,0,128,128);
+  const shadow=new THREE.Mesh(new THREE.PlaneGeometry(1,1),new THREE.MeshBasicMaterial({map:new THREE.CanvasTexture(sh),transparent:true,depthWrite:false}));
+  shadow.scale.set(IMG*1.3,.22,1);shadow.position.set(0,-.53,-.15);scene.add(shadow);
+  shadow.visible=getComputedStyle(visual).getPropertyValue('--shadow-media').trim()!=='none';
+
+  function resize(){const r=canvas.getBoundingClientRect();if(!r.width)return;renderer.setSize(r.width,r.height,false);camera.aspect=r.width/r.height;
+    /* corner radius follows the theme token, in card units (card height = 1) */
+    const h=visual.offsetHeight;if(h)uni.radius.value=Math.min(.2,(parseFloat(getComputedStyle(visual).getPropertyValue('--radius-media'))||0)/h);
+    const vh=2*Math.tan(THREE.MathUtils.degToRad(camera.fov/2))*camera.position.z;const s=vh/1.18;card.scale.setScalar(s);shadow.position.y=-.52*s;camera.updateProjectionMatrix()}
+  new ResizeObserver(resize).observe(visual);resize();
+
+  const target=new THREE.Vector2(),cur=new THREE.Vector2();let touched=false;
+  addEventListener('pointermove',e=>{if(e.pointerType!=='mouse')return;touched=true;target.set(e.clientX/innerWidth*2-1,-(e.clientY/innerHeight*2-1))},{passive:true});
+
+  let visible=true,running=false;const t0=performance.now();let last=t0;
+  new IntersectionObserver(([e])=>{visible=e.isIntersecting;if(visible&&!running&&!RM&&uni.map.value)loop()}).observe(visual);
+  function frame(now){
+    const dt=Math.min((now-last)/1000,.05);last=now;const t=(now-t0)/1000;
+    if(!touched&&!RM)target.set(Math.sin(t*.45)*.55,Math.cos(t*.33)*.35);
+    cur.lerp(target,1-Math.pow(.0025,dt));uni.mouse.value.copy(cur);
+    uni.reveal.value=RM?1:Math.min(uni.reveal.value+dt*.9,1);
+    const top=visual.getBoundingClientRect().top,sp=Math.min(Math.max(-top/innerHeight,0),1);
+    card.rotation.y=cur.x*.2;card.rotation.x=-cur.y*.13+sp*.35;
+    card.position.y=RM?0:Math.sin(t*.9)*.012*card.scale.y;
+    renderer.render(scene,camera);
+    if(!visual.classList.contains('gl'))visual.classList.add('gl');
+  }
+  function loop(){running=true;last=performance.now();const f=now=>{if(!visible){running=false;return}frame(now);requestAnimationFrame(f)};requestAnimationFrame(f)}
+
+  new THREE.TextureLoader().load('assets/portrait.jpg',tex=>{
+    tex.minFilter=THREE.LinearFilter;tex.generateMipmaps=false;tex.anisotropy=renderer.capabilities.getMaxAnisotropy();
+    uni.map.value=tex;
+    if(RM){uni.reveal.value=1;frame(performance.now());addEventListener('resize',()=>frame(performance.now()))}else loop();
+  });
+}catch(err){/* keep the static photo */}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,235 @@
+/* =====================================================================
+   Design tokens for naveedakram83.github.io/portfolio
+   ---------------------------------------------------------------------
+   One semantic token set. Components only ever read these variables.
+   A theme is chosen with <html data-theme="midnight|editorial|obsidian">
+   (or on any wrapper element, as the preview page does).
+
+   Status: three candidate themes for review. None is final yet.
+   ===================================================================== */
+
+/* ---------- 1. Shared scale (theme independent) ---------- */
+:root{
+  --maxw:1180px;
+  --gutter:clamp(16px,4vw,40px);
+  --space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:24px;
+  --space-6:32px;--space-7:48px;--space-8:64px;--space-9:96px;--space-10:128px;
+
+  /* type scale, fluid against the container (cqi) with rem guard rails */
+  --fs-display:clamp(2.35rem,5.6cqi,4.4rem);
+  --fs-h2:clamp(1.8rem,3.6cqi,2.75rem);
+  --fs-h3:clamp(1.2rem,1.9cqi,1.5rem);
+  --fs-lede:clamp(1.02rem,1.35cqi,1.2rem);
+  --fs-body:1rem;
+  --fs-small:.875rem;
+  --fs-label:.75rem;
+
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --dur:.5s;
+
+  /* portrait is always shown in black and white (Naveed, 2026-11-13) */
+  --portrait-filter:grayscale(1) contrast(1.06);
+}
+
+/* ---------- 2. Theme: Midnight Blue + Electric Blue ----------
+   Sophisticated enterprise technology. Deep navy, one electric accent,
+   tight grotesk headlines, fine engineering grid in the hero. */
+[data-theme="midnight"]{
+  color-scheme:dark;
+  --bg:#0A1222;
+  --bg-alt:#0D172B;
+  --surface:#111D35;
+  --surface-2:#16233F;
+  --text:#EAF0FA;
+  --text-2:#C3CCDD;
+  --muted:#8C99B3;
+  --line:rgba(148,170,215,.16);
+  --line-strong:rgba(148,170,215,.28);
+
+  --accent:#3D8BFF;
+  --accent-text:#6AA8FF;
+  --accent-soft:rgba(61,139,255,.14);
+  --btn-bg:#2F6FEB;
+  --btn-bg-hover:#3D7BF5;
+  --btn-ink:#FFFFFF;
+
+  --feature-bg:linear-gradient(150deg,#14336B 0%,#0F1D3A 62%);
+  --feature-text:#F2F6FD;
+  --feature-muted:#A9B6CF;
+  --chip-bg:rgba(148,170,215,.10);
+  --chip-ink:#C9D3E6;
+
+  --hero-bg:
+    radial-gradient(55% 75% at 80% 42%,rgba(47,111,235,.26),transparent 70%),
+    linear-gradient(rgba(148,170,215,.055) 1px,transparent 1px) 0 0/56px 56px,
+    linear-gradient(90deg,rgba(148,170,215,.055) 1px,transparent 1px) 0 0/56px 56px,
+    #0A1222;
+  --nav-bg:rgba(10,18,34,.72);
+
+  --font-display:"Inter Tight",-apple-system,"Segoe UI",sans-serif;
+  --font-body:"Inter",-apple-system,"Segoe UI",sans-serif;
+  --font-label:"Inter",-apple-system,"Segoe UI",sans-serif;
+  --h1-weight:600;--h1-track:-.038em;--h1-lh:1.02;
+  --h2-weight:600;--h2-track:-.03em;
+  --accent-style:normal;--accent-weight:600;
+  --label-transform:uppercase;--label-track:.12em;--label-weight:600;
+
+  --radius-card:20px;--radius-media:22px;--radius-btn:10px;--radius-chip:8px;
+  --card-border:1px solid var(--line);
+  --shadow-media:0 40px 90px -40px rgba(0,0,0,.85),0 0 0 1px rgba(106,168,255,.22);
+  --sheen:rgba(150,195,255,.20);
+  --text-faint:#33415E;
+  --warn-bg:rgba(255,184,77,.12);--warn-ink:#FFC27A;
+  --band-bg:#060C18;--band-surface:#0F1A30;--band-text:#EAF0FA;--band-text-2:#C3CCDD;--band-muted:#8C99B3;
+  --band-line:rgba(148,170,215,.14);--band-accent:#6AA8FF;--band-btn-bg:#2F6FEB;--band-btn-ink:#FFFFFF;--band-btn-hover:#3D7BF5;
+}
+
+/* ---------- 3. Theme: Warm White + Graphite + Cobalt (FINAL) ----------
+   Palette approved by Naveed 2026-11-13:
+     Primary background #F5F5F2 · Cards #FFFFFF · Primary text #20242B
+     Accent / buttons #2256C8 · Secondary accent #A9B8CC
+     Muted text #58616D · Borders #D8DDE3
+   Other values below are derived from these (tints and shades). */
+[data-theme="editorial"]{
+  color-scheme:light;
+  --bg:#F5F5F2;
+  --bg-alt:#ECEDEA;            /* derived: alternate section ground */
+  --surface:#FFFFFF;
+  --surface-2:#E9ECEF;         /* derived: bar tracks */
+  --text:#20242B;
+  --text-2:#3A404A;            /* derived: between text and muted */
+  --muted:#58616D;
+  --line:#D8DDE3;
+  --line-strong:#B9C1CB;       /* derived: hover borders, timeline */
+
+  --accent:#2256C8;
+  --accent-text:#2256C8;
+  --accent-soft:rgba(34,86,200,.08);
+  --btn-bg:#2256C8;
+  --btn-bg-hover:#1B47A8;      /* derived: darker cobalt */
+  --btn-ink:#FFFFFF;
+
+  --feature-bg:#20242B;
+  --feature-text:#F5F5F2;
+  --feature-muted:#A9B8CC;
+  --feature-icon:#A9B8CC;
+  --chip-bg:transparent;
+  --chip-ink:var(--text-2);
+
+  --hero-bg:#F5F5F2;
+  --nav-bg:rgba(245,245,242,.84);
+
+  /* typography matches Obsidian (Geist + Geist Mono), per Naveed 2026-11-13 */
+  --font-display:"Geist",-apple-system,"Segoe UI",sans-serif;
+  --font-body:"Geist",-apple-system,"Segoe UI",sans-serif;
+  --font-label:"Geist Mono",ui-monospace,Consolas,monospace;
+  --h1-weight:500;--h1-track:-.045em;--h1-lh:1.0;
+  --h2-weight:500;--h2-track:-.035em;
+  --accent-style:normal;--accent-weight:500;
+  --label-transform:none;--label-track:0;--label-weight:500;
+
+  --radius-card:4px;--radius-media:2px;--radius-btn:2px;--radius-chip:2px;
+  --card-border:1px solid var(--line);
+  --shadow-media:none;
+  --sheen:rgba(255,255,255,.22);
+  --text-faint:#C5CBD3;
+  --warn-bg:#F3E8D2;--warn-ink:#7A4F00;
+  /* graphite bands */
+  --band-bg:#20242B;--band-surface:#2A2F38;--band-text:#F5F5F2;--band-text-2:#D5DAE1;--band-muted:#A9B8CC;
+  --band-line:rgba(169,184,204,.18);--band-accent:#A9B8CC;--band-btn-bg:#2256C8;--band-btn-ink:#FFFFFF;--band-btn-hover:#2E66DE;
+}
+
+/* ---------- 4. Theme: Obsidian + Muted Emerald ----------
+   Restrained modern engineering. Near-black with a green cast, a quiet
+   emerald accent, monospace labels, dot-grid texture, precise radii. */
+[data-theme="obsidian"]{
+  color-scheme:dark;
+  --bg:#0B0D0C;
+  --bg-alt:#0F1211;
+  --surface:#141816;
+  --surface-2:#1A1F1C;
+  --text:#E7ECE9;
+  --text-2:#C2CAC5;
+  --muted:#8A948E;
+  --line:rgba(190,215,200,.12);
+  --line-strong:rgba(190,215,200,.24);
+
+  --accent:#5FA889;
+  --accent-text:#7DBFA2;
+  --accent-soft:rgba(95,168,137,.13);
+  --btn-bg:#7DBFA2;
+  --btn-bg-hover:#93CDB3;
+  --btn-ink:#06130D;
+
+  --feature-bg:linear-gradient(160deg,#17251F 0%,#101513 70%);
+  --feature-text:#EEF3F0;
+  --feature-muted:#A3ADA7;
+  --chip-bg:rgba(190,215,200,.07);
+  --chip-ink:#C2CAC5;
+
+  --hero-bg:
+    radial-gradient(45% 60% at 78% 45%,rgba(95,168,137,.12),transparent 70%),
+    radial-gradient(rgba(190,215,200,.085) 1px,transparent 1.3px) 0 0/22px 22px,
+    #0B0D0C;
+  --nav-bg:rgba(11,13,12,.76);
+
+  --font-display:"Geist",-apple-system,"Segoe UI",sans-serif;
+  --font-body:"Geist",-apple-system,"Segoe UI",sans-serif;
+  --font-label:"Geist Mono",ui-monospace,Consolas,monospace;
+  --h1-weight:500;--h1-track:-.045em;--h1-lh:1.0;
+  --h2-weight:500;--h2-track:-.035em;
+  --accent-style:normal;--accent-weight:500;
+  --label-transform:none;--label-track:0;--label-weight:500;
+
+  --radius-card:12px;--radius-media:10px;--radius-btn:8px;--radius-chip:6px;
+  --card-border:1px solid var(--line);
+  --shadow-media:0 30px 70px -35px rgba(0,0,0,.9);
+  --sheen:rgba(180,235,210,.14);
+  --text-faint:#3A423E;
+  --warn-bg:rgba(255,184,77,.10);--warn-ink:#E9B970;
+  --band-bg:#070908;--band-surface:#121614;--band-text:#E7ECE9;--band-text-2:#C2CAC5;--band-muted:#8A948E;
+  --band-line:rgba(190,215,200,.10);--band-accent:#7DBFA2;--band-btn-bg:#7DBFA2;--band-btn-ink:#06130D;--band-btn-hover:#93CDB3;
+}
+
+/* ---------- 4b. Bands ----------
+   A .band section flips to the theme's contrasting surface by remapping
+   the same semantic tokens, so components need no band-specific rules. */
+.band{
+  --bg:var(--band-bg);--bg-alt:var(--band-bg);--surface:var(--band-surface);--surface-2:var(--band-surface);
+  --text:var(--band-text);--text-2:var(--band-text-2);--muted:var(--band-muted);
+  --line:var(--band-line);--line-strong:var(--band-line);
+  --accent:var(--band-accent);--accent-text:var(--band-accent);
+  --btn-bg:var(--band-btn-bg);--btn-ink:var(--band-btn-ink);--btn-bg-hover:var(--band-btn-hover);
+  --chip-bg:transparent;--chip-ink:var(--band-text-2);
+  background:var(--bg);color:var(--text);
+}
+
+/* ---------- 5. Theme signatures ----------
+   Small structural touches that tokens alone cannot express.
+   Kept here so the full site inherits them with the theme. */
+
+/* Midnight: thin electric rim on the portrait */
+[data-theme="midnight"] .portrait-frame::after{
+  content:"";position:absolute;inset:-1px;border-radius:inherit;pointer-events:none;
+  background:linear-gradient(160deg,rgba(106,168,255,.55),transparent 35%,transparent 70%,rgba(106,168,255,.25)) border-box;
+  -webkit-mask:linear-gradient(#000 0 0) padding-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;
+  border:1px solid transparent;
+}
+
+/* Editorial: offset architectural frame and hairline section rules */
+[data-theme="editorial"] .portrait-frame::before{
+  content:"";position:absolute;inset:18px -18px -18px 18px;border:1px solid var(--line-strong);z-index:-1;
+}
+@container (max-width:820px){[data-theme="editorial"] .portrait-frame::before{inset:10px -10px -10px 10px}}
+[data-theme="editorial"] .rule-top{border-top:1px solid var(--text)}
+
+/* Obsidian: corner registration ticks around the portrait */
+[data-theme="obsidian"] .portrait-frame::before{
+  content:"";position:absolute;inset:-10px;pointer-events:none;
+  background:
+    linear-gradient(var(--accent),var(--accent)) 0 0/14px 1px no-repeat,
+    linear-gradient(var(--accent),var(--accent)) 0 0/1px 14px no-repeat,
+    linear-gradient(var(--accent),var(--accent)) 100% 100%/14px 1px no-repeat,
+    linear-gradient(var(--accent),var(--accent)) 100% 100%/1px 14px no-repeat;
+  opacity:.8;
+}

@@ -1,0 +1,9 @@
+# private working notes and local tooling
+CLAUDE.md
+.claude/
+
+# local review pages, not part of the site
+preview/
+
+# original photo; the site uses the optimized portrait.jpg / portrait.webp
+assets/professional_pic_gray.png
